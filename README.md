@@ -7,5 +7,6 @@ Hub my email eduherst19@gmail.com (email reserve)
 enjoy progarm!!!
 
 💻 Tumpukan Teknologi
- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c++/c++-original.svg" width="40" height="40" alt="c++" title="c++"/>
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" width="40" height="40" alt="C++" title="C++"/>
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg" width="40" height="40" alt="Visual Studio" title="Visual Studio"/>
 
