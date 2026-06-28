@@ -10,3 +10,23 @@ enjoy progarm!!!
  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" width="40" height="40" alt="C++" title="C++"/>
  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg" width="40" height="40" alt="Visual Studio" title="Visual Studio"/>
 
+\## Installation  (Program C++ yang menjalankan/mengeksekusi PHP)
+#include <iostream>
+   #include <cstdlib>
+   using namespace std;
+   
+   int main() {
+       system("php script.php");
+       return 0;
+   }
+
+   ## 💭 Inspirational Quote
+
+<p align="center">
+  <em>"The only way to do great work is to love what you do."</em><br>
+  – Steve Jobs
+</p>
+
+<p align="center">
+  Made with ❤️ by Arrafa Sr
+</p>
