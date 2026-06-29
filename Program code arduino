@@ -1,0 +1,63 @@
+Program simpel 
+
+void setup() {
+  Serial.begin(9600);  // Mulai Serial Monitor dengan 9600 baud
+  Serial.println("=== Arduino Siap ===");
+}
+void loop() {
+  Serial.print("step");
+  Serial.print("count");
+  round
+  delay(1000);
+}
+
+Program Button speedUp (Modi
+
+
+#define ledRed 2     (It can be changed depending on the digitalWrite)
+#define ledabang 5
+#define buttonSpeedUp 7
+
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);  //monitoring log input
+
+  pinMode(buttonSpeedUp, INPUT);
+  //default state = 1
+  digitalWrite(buttonSpeedUp, HIGH);  // default state
+  pinMode(ledRed, OUTPUT);
+  pinMode(ledabang, OUTPUT);
+}
+void speedMode(int option) {
+  if (option == 1) {  //mode kenceng
+    digitalWrite(ledRed, HIGH);
+    delay(100);
+    digitalWrite(ledRed, LOW);
+    digitalWrite(ledabang, HIGH);
+    delay(100);
+    digitalWrite(ledabang, LOW);
+
+  } else {            // mode lambat
+    digitalWrite(ledRed, HIGH);
+    delay(300);                    (The numbers can be changed)
+    digitalWrite(ledRed, LOW);
+    digitalWrite(ledabang, HIGH);
+    delay(300);                    (The numbers can be changed.)
+    digitalWrite(ledabang, LOW);
+  }
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int isButtonSpeedPressed = digitalRead(buttonSpeedUp);
+  if (isButtonSpeedPressed == 0) {  //jika tombol di pencet
+     speedMode(1);
+  }else {
+    speedMode(0);
+  }
+}
+
+
+
+
