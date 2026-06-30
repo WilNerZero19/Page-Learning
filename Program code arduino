@@ -59,5 +59,44 @@ void loop() {
 }
 
 
+Simple  progaram (pembuka)
+void setup () {
+Serial.begin(9600); / pinMode(LED_BUILIN, output);
+}
+
+void loop () {
+digitalWrite(LED_BUILTIN, HIGH);
+delay(2000);
+digitalWrite(LED_BUILTIN, LOW );
+delay(2000);
+}
+
+============== Code Introduction ========
+chapter 1 
+
+Fungsi 
+* setup()    [pengertian  setup berfungsi hanya sekali setiap penyalan]
+* loop()     [Pengertian  Loop berfungsi untuk mengulang selama arduino masih berfungsi]
+
+  Sebagai contoh dapat di coba dengan Mengunakan Led light 
+Hubungkan led light dengan kaki pendek ke GND dan kaki panjang ke no 13 
+hasil nya dapat di lihat akan berfungsi (hubungkan kabel usb ke arduino terlebih dahulu.
+
+di mana Bahan bahan2 nya * Arduino   (sebagai contoh arduino nya berfungsi )
+                         * Kabel 
+                         * led 
+Chapter 2 
+
+Kurung Awal () contoh Seperti void setup() and loop ()
+
+kurung awal adalah merupakn bagian dari bahasa pemograman C++ ( fakata nya arduino di program dengan bahasa C++)
+seperti void setup () {
+Serial.begin(9600);    // jangan lupa pakai tanda (;) pada akhir text
+}
+
+fungsi nya untuk memeriksa sambungan keseimbangan kurung kurawal  jika tidak program tidak berfungsi / eror
+kurung kurawal yang tidak seimbang sering kali dapat menyebabkan eror.
+
+
 
 
