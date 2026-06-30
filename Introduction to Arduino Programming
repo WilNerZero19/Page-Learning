@@ -1,6 +1,6 @@
 Arduino Dan  Program (arduino uno)
   Bahan-bahan nya 
-  *Resistor 
+  *Resistor (220ohm - 1k dll)
   * Arduino uno (Simpel and esey)
   * cabel jumper male to male and male to famele 
   * cabel usb and cabel type-c (arduino nano)
@@ -8,6 +8,7 @@ Arduino Dan  Program (arduino uno)
   * beardboard 
   * Button 
   * servo (motor/turbin)
+  * lcd 12c (recomend )
 
 
 dengan terhubng denagn kabel usb dan app arduino ide
