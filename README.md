@@ -20,7 +20,7 @@ enjoy progarm!!!
 ---
  
 
-## Installation  (Program C++ yang menjalankan/mengeksekusi PHP)
+/## Installation  (Program C++ yang menjalankan/mengeksekusi PHP)
 #include <iostream>
 #include <cstdlib>
 using namespace std;
