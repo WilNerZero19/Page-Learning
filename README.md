@@ -20,7 +20,9 @@ enjoy progarm!!!
 ---
  
 
-/## Installation  (Program C++ yang menjalankan/mengeksekusi PHP)
+/## Installation  
+(Program C++ yang menjalankan/mengeksekusi PHP)
+``` bash
 #include <iostream>
 #include <cstdlib>
 using namespace std;
@@ -34,7 +36,7 @@ int main() {
        system("php script.php");
        return 0;
    }
-
+```
    ## 💭 Inspirational Quote
 
 <p align="center">
