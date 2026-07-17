@@ -11,8 +11,13 @@ enjoy progarm!!!
 
  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" width="40" height="40" alt="C++" title="C++"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg" width="40" height="40" alt="Visual Studio" title="Visual Studio"/>
 
+## 📊 GitHub Statistics
 
+<p align="center"
+  <img src="https://github-readme-stats-nu-gray.vercel.app/api?username=WilNerZero19&show_icons=true&theme=github_dark" alt="GitHub Streak"/>
+</p>
 
+---
  
 
 \## Installation  (Program C++ yang menjalankan/mengeksekusi PHP)
