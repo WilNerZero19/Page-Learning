@@ -22,8 +22,13 @@ enjoy progarm!!!
 
 ## Installation  (Program C++ yang menjalankan/mengeksekusi PHP)
 #include <iostream>
-   #include <cstdlib>
-   using namespace std;
+#include <cstdlib>
+using namespace std;
+
+int main() {
+    system("php script.php");
+    return 0;
+}
    
    int main() {
        system("php script.php");
