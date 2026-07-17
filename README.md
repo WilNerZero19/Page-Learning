@@ -13,14 +13,14 @@ enjoy progarm!!!
 
 ## 📊 GitHub Statistics
 
-<p align="center"
+<p align="center">
   <img src="https://github-readme-stats-nu-gray.vercel.app/api?username=WilNerZero19&show_icons=true&theme=github_dark" alt="GitHub Streak"/>
 </p>
 
 ---
  
 
-\## Installation  (Program C++ yang menjalankan/mengeksekusi PHP)
+## Installation  (Program C++ yang menjalankan/mengeksekusi PHP)
 #include <iostream>
    #include <cstdlib>
    using namespace std;
