@@ -1,0 +1,65 @@
+Sensor hujan otomatis 
+
+#include <Servo.h>
+
+Servo myservo;
+
+// Definisikan Pin Komponen
+const int pinHujan  = A0;  // Pin analog untuk sensor hujan
+const int buzzerPin = 8;   // Pin digital untuk buzzer
+const int batasAir  = 500; // Batas sensitivitas hujan
+
+const int posisiNormal  = 90; // Posisi servo saat cerah (posisi semula)
+const int posisiBerteduh = 180; // Posisi servo saat hujan (berteduh)
+
+bool sudahHujan = false; // Status: apakah sedang dalam kondisi hujan
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(pinHujan, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+
+  myservo.attach(5);
+  myservo.write(posisiNormal); // Posisi awal: normal (90 derajat)
+  digitalWrite(buzzerPin, LOW);
+
+  Serial.println("Sistem Atap Otomatis Siap...");
+}
+
+void loop() {
+  int nilaiHujan = analogRead(pinHujan);
+
+  Serial.print("Nilai Sensor: ");
+  Serial.println(nilaiHujan);
+
+  // KONDISI 1: Terdeteksi HUJAN
+  if (nilaiHujan <= batasAir) {
+
+    if (sudahHujan == false) {
+      Serial.println("HUJAN TERDETEKSI! Servo berteduh...");
+
+      myservo.write(posisiBerteduh); // Langsung gerak ke posisi berteduh
+
+      // Bunyi bip peringatan sekali saat hujan mulai
+      digitalWrite(buzzerPin, HIGH);
+      delay(400);
+      digitalWrite(buzzerPin, LOW);
+
+      sudahHujan = true; // Kunci status agar tidak mengulang terus
+    }
+
+  }
+  // KONDISI 2: Cuaca CERAH / KERING
+  else {
+    if (sudahHujan == true) {
+      Serial.println("Cuaca reda. Servo kembali ke posisi normal (90 derajat).");
+
+      myservo.write(posisiNormal); // Kembali ke posisi normal
+      digitalWrite(buzzerPin, LOW);
+
+      sudahHujan = false; // Reset status agar siap beraksi lagi saat hujan berikutnya
+    }
+  }
+
+  delay(700); // Jeda pembacaan sensor
+}
