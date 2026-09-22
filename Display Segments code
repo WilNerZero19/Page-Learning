@@ -1,0 +1,73 @@
+// ==== Konfigurasi Pin ==== 
+
+// Pin Segment (a, b, c, e, f, g, dp)
+const int segmentPins[8] = {2, 3, 4, 5, 6, 7, 8, 9, 9};
+
+// Pin common tiap Digit ( digit 1 ,  digit 2, digit3, digit4)
+const int digitPins[4] = {10, 11, 12, 13};
+
+// ====Pola Angka 0-9 (Common cathode:  1 =nyala , 0 = mati)====
+// urutan: a, b, c, d, e, f, g, dp
+byrte angkaPola[10][8] = {
+  {1,1,1,1,1,1,0,0}, // 0
+  {0,1,1,0,0,0,0,0}, // 1
+  {1,1,0,1,1,0,1,0}, // 2
+  {1,1,1,1,0,0,1,0}, // 3
+  {0,1,1,0,0,1,1,0}, // 4
+  {1,0,1,1,0,1,1,0}, // 5
+  {1,0,1,1,1,1,1,0}, // 6
+  {1,1,1,0,0,0,0,0}, // 7
+  {1,1,1,1,1,1,1,0}, // 8
+  {1,1,1,1,0,1,1,0}  // 9
+};
+
+int angkaSekarang = 0;
+unsigned long waktuTerakhirUpdate = 0;
+const unsigned long jedaHitung = 1000; // ganti angka tiap 1 detik
+
+
+void setup() {
+ // set semua pin segmen sebagai output
+for (int i = 0; i < 8; i++) {
+    pinMode(segmentPins[i], OUTPUT);
+ }
+}
+
+void loop() {
+  // update angka tiap 1 detik 
+if (millis() - waktuTerakhirUpdate >= jedaHitung) {
+    angkaSekarang++;
+if (angkaSekarang > 9999) {
+    angkaSekarang = 0; 
+  }
+  waktuTerakhirUpdate = millis();
+  }
+
+  tampilkanAngka(angkaSekarang);
+}
+
+// ==== FUNGSI TAMPPILKAN ANGKA 4 DIGIT (multiplexing) ====
+void tampilkanAngka(int angka) {
+  int digit[4];
+  digit[0] = (angka / 1000) % 10; // ribuan
+  digit[1] = (angka / 100) % 10;  // ratusan
+  digit[2] = (angka / 10) % 10;   // puluhan
+  digit[3] = angka % 10;          // satuan
+
+for (int i = 0; i < 4; i++) {
+    // matikan semua digit dulu
+    for (int d = 0; d < 4; d++) {
+      digitalWrite(digitPins[d], LOW);
+    }
+
+    // set pola segmen untuk digit ke-i
+  for (int s = 0; s < 8; s++) {
+      digitalWrite(segmentPins[s], angkaPola[digit[i]][s]);
+    }
+
+    // nyalakan hanya digit ke-i
+    digitalWrite(digitPins[i], HIGH);
+
+    delay(3); // waktu nyala tiap digit (multiplexing)
+  }
+}
