@@ -52,6 +52,7 @@ void loop() {
   cekTombol();
   tampilkanAngka(angkaSekarang);
 }
+// ==== Percobaan =====
 
 // ===== FUNGSI CEK TOMBOL (dengan debounce) =====
 void cekTombol() {
