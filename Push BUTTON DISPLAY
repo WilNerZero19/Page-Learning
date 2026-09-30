@@ -1,0 +1,78 @@
+// ==== Konfigurasi Pin ==== 
+
+const int segmentPins[8] = {2, 3, 4, 5, 6, 7, 8, 9};
+const int digitPins[4] = {10, 11, 12, 13};
+const int buttonPin = A0;   // pin tombol
+
+// ==== Pola Angka 0-9 (Common Cathode: 1 = nyala, 0 = mati) ====
+// urutan: a, b, c, d, e, f, g, dp
+byte angkaPola[10][8] = {
+  {1,1,1,1,1,1,0,0}, // 0
+  {0,1,1,0,0,0,0,0}, // 1
+  {1,1,0,1,1,0,1,0}, // 2
+  {1,1,1,1,0,0,1,0}, // 3
+  {0,1,1,0,0,1,1,0}, // 4
+  {1,0,1,1,0,1,1,0}, // 5
+  {1,0,1,1,1,1,1,0}, // 6
+  {1,1,1,0,0,0,0,0}, // 7
+  {1,1,1,1,1,1,1,0}, // 8
+  {1,1,1,1,0,1,1,0}  // 9
+};
+
+int angkaSekarang = 0;
+
+// untuk debounce tombol
+int statusTombolSebelumnya = HIGH;
+unsigned long waktuTerakhirTekan = 0;
+const unsigned long debounceDelay = 50;
+
+void setup() {
+  for (int i = 0; i < 8; i++) {
+    pinMode(segmentPins[i], OUTPUT);
+  }
+  for (int i = 0; i < 4; i++) {
+    pinMode(digitPins[i], OUTPUT);
+    digitalWrite(digitPins[i], LOW);
+  }
+
+  pinMode(buttonPin, INPUT_PULLUP); // tombol pakai pull-up internal
+}
+
+void loop() {
+  cekTombol();
+  tampilkanAngka(angkaSekarang);
+}
+
+void cekTombol() {
+  int statusTombol = digitalRead(buttonPin);
+
+  if (statusTombol == LOW && statusTombolSebelumnya == HIGH) {
+    if (millis() - waktuTerakhirTekan > debounceDelay) {
+      angkaSekarang++;
+      if (angkaSekarang > 9999) {
+        angkaSekarang = 0;
+      }
+      waktuTerakhirTekan = millis();
+    }
+  }
+  statusTombolSebelumnya = statusTombol;
+}
+
+void tampilkanAngka(int nilai) {
+  int digit[4];
+  digit[0] = (nilai / 1000) % 10;
+  digit[1] = (nilai / 100) % 10;
+  digit[2] = (nilai / 10) % 10;
+  digit[3] = nilai % 10;
+
+  for (int i = 0; i < 4; i++) {
+    for (int d = 0; d < 4; d++) {
+      digitalWrite(digitPins[d], LOW);
+    }
+    for (int s = 0; s < 8; s++) {
+      digitalWrite(segmentPins[s], angkaPola[digit[i]][s]);
+    }
+    digitalWrite(digitPins[i], HIGH);
+    delay(3);
+  }
+}
